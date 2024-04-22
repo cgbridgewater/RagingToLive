@@ -1,4 +1,2 @@
-# Raging To Live
-
-## What's your rage?
 # RagingToLive
+## What's your rage?

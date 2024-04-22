@@ -1,0 +1,801 @@
+/* FONT IMPORT */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+:root {
+    --background: #010814 ;
+    --black: #0D1F2D;
+    --popup_background: #182445 ;
+    --border: #CBE5EC85;
+    --main_text: #CBE5EC;
+    --text_span: #efd780;
+    --card_text: #CBE5EC;
+    --purple: #261845;
+    --white: #FFF;
+    --font_size_default: 16px;
+    --red: #c40000;
+    --green: #638873;
+    --grey: #c0c0c0;
+    --dark_grey: #858484;
+    --light_grey: #678092;
+    --blue: rgb(96, 96, 254);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+#root {
+    overflow-x: hidden;
+}
+
+html, body, * {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-family: 'Source Sans Pro', sans-serif;
+    word-spacing: .097rem;
+    font-display: swap;
+}
+
+html {
+    font-size: var(--font_size_default);
+}
+
+body {
+    width: 100%;
+    background: var(--background)
+}
+
+
+.MainContainer {
+    background-color: var(--background);
+    width: 100dvw;
+    min-height: 100dvh;
+    background-attachment: scroll;
+    overflow-x: hidden;
+}
+
+/* TITLE STYLE */
+.Title, .SubTitle, .Signup {
+    text-align: center;
+    color: var(--main_text);
+}
+
+.Title {
+    padding: 15px;
+}
+
+.Gold {
+    color:var(--text_span)
+}
+
+.Signup {
+    padding-top: 15px ;
+}
+
+.Signup span {
+    margin-left: 10px;
+}
+
+.Unauthorized {
+    text-align: center;
+    padding-top: 20px;
+    color: var(--red);
+}
+
+.RegisterLink, .LoginLink {
+    display:inline-flex;
+    position: relative;
+    color: var(--text_span);
+	transform: scale(1.2, 1.2) translateY(-5px);
+}
+
+.RegisterLink {
+    margin-left: 13px;
+}
+
+.LoginLink {
+    margin-left: 10px;
+    top: 5px;
+}
+
+.RegisterLink:hover, .LoginLink:hover {
+    transform: scale(1.4, 1.4) translateY(-4px);
+    transition: 0.2s ;
+}
+
+.Title span {
+    color: var(--text_span);
+}
+/* END TITLE STYLE */
+
+/* MAP STYLE */
+.MapContainer {
+    margin: 20px auto;
+    width: 75dvw;
+    height:75dvh;
+    min-height: 375px;
+    min-width: 370px;
+    border: 5px solid var(--border);
+    border-radius: 5px;
+}
+
+.mapbox-improve-map {
+    display: none;
+}
+
+.mapboxgl-ctrl-attrib {
+    border-top: 3px solid var(--border);
+    border-left: 3px solid var(--border);
+}
+
+.mapboxgl-ctrl-group {
+    border: 4px double var(--dark_grey);
+}
+
+.mapboxgl-ctrl-attrib-inner, .mapboxgl-ctrl.mapboxgl-ctrl-attrib, .mapboxgl-ctrl-attrib-inner a {
+    background-color: var(--background);
+    color: var(--text_span);
+}
+
+button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out span, .mapboxgl-ctrl-zoom-in span  {
+    background-color: var(--light_grey);
+}
+
+.mapboxgl-ctrl-icon:hover, button.mapboxgl-ctrl-compass:hover {
+    background-color: var(--card_text);
+}
+/* MAP STYLE */
+
+/* MARKER STYLES */
+.Marker {
+    position: absolute;
+    top:-30px;
+    width: 30px;
+    height: 30px;
+    border: thin solid var(--black);
+    border-radius: 50%;
+    background-image: url("./assets/stock_bee.png");
+    background-size: cover;
+    background-position: center;
+    background-color: var(--white);
+    box-shadow: 0px 25px 8px -10px rgba(0,0,0, .35);
+    cursor: pointer;
+}
+
+.HQ {
+    background-image: url("./assets/queen_bee.png");
+    z-index: 10;
+}
+
+.Alumni {
+    background-image: url("./assets/stock_bee.png");
+    background-color: var(--blue);
+}
+
+.Staff {
+    background-image: url("./assets/stock_bee.png");
+    background-color: var(--text_span);
+}
+
+.Student {
+    background-image: url("./assets/stock_bee.png");
+    background-color: var(--green);
+}
+/* END MARKER STYLES */
+
+/* MAP MARKER POPUP */
+.mapboxgl-popup {
+    z-index: 999;
+}
+
+.mapboxgl-popup-content {
+    width: 280px;
+    background-color: var(--background);
+    border: 4px solid var(--border);
+    padding: 17px 5px 10px 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0.9);
+    z-index: 9999;
+    opacity: 87%;
+}
+
+.mapboxgl-popup-content div div{
+    display: flex;
+    justify-content: center;
+}
+
+.mapboxgl-popup-content h1 {
+    color: var(--text_span);
+    text-align: center;
+    font-size: 24px;
+    padding-top: 5px;
+    margin: 10px 0;
+    text-transform: capitalize;
+}
+
+.mapboxgl-popup-content h2 {
+    color: var(--text_span);
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+#StaffText {
+    color: var(--text_span);
+}
+
+#StudentText {
+    color: var(--green);
+}
+
+#AlumniText {
+    color: var(--blue);
+    
+}
+
+#GuestText {
+    color: var(--white);
+}
+
+.mapboxgl-popup-content p, .mapboxgl-popup-content svg {
+    margin: 4px;
+    color: var(--card_text);
+    font-size: 14px;
+    fill: var(--card_text);
+    height: 18px;
+}
+
+.mapboxgl-popup-content a {
+    margin: 4px;
+    color: var(--border);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: capitalize;
+    
+    &:hover {
+        color: var(--white);
+    }
+}
+
+.mapboxgl-popup-content a:focus {
+    outline: none;
+}
+
+.mapboxgl-popup-content img {
+    height: 75px;
+    width: 75px;
+    border:2px solid var(--border);
+    border-radius: 50%;
+    margin: 10px auto;
+    background-color: var(--white);
+}
+
+.mapboxgl-popup-close-button {
+    background-color: var(--border);
+    color: var(--white);
+    font-weight: 800;
+    border: 2px solid var(--border);
+    margin: 4px 4px 0 0;
+    padding: 4px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mapboxgl-popup-close-button:hover {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+/* END MAP MARKER POPUP */
+
+/* PHONE VIEW SPECS */
+@media (max-width: 430px) {
+	.MapContainer {
+        height: 450px;
+        border: 3px solid var(--border);
+    }
+    .mapboxgl-popup-content {
+        border: 4px solid var(--border);
+    }
+    .mapboxgl-popup-content h1 {
+        font-size: 22px;
+    }
+    .mapboxgl-popup-content a {
+        font-size: 13px;
+        font-weight: 700;
+    }
+    .mapboxgl-popup-content img {
+        height: 70px;
+        width: 70px;
+    }
+}
+/* END PHONE VIEW SPECS */
+
+/* BAD LINK PAGE */
+.YikesContainer {
+    background-color: var(--background);
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.YikesButton {
+    position: relative;
+    left: 47.5%;
+    top: -70px;
+    width: 160px;
+    height: 30px;
+    background-color: #D7705B;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.Yikes {
+    margin: 0 auto;
+    width: 370px;
+    border: 4px solid #D7705B;
+    border-radius: 5px;
+}
+/* BADLINK PAGE */
+
+/* FORM STYLE */
+.FormWrapper {
+    width: 380px;
+    margin: 0px auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.RegForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 5px double var(--border);
+    border-radius: 5px;
+    padding: 10px;
+    width: 330px;
+}
+
+.InputContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+}
+
+label {
+    color: var(--border);
+    font-weight: 800;
+}
+
+label i {
+    color: var(--text_span);
+}
+
+input.geoapify-autocomplete-input,
+input#userName,
+input#instagram,
+input#facebook,
+input#spotify,
+input#email,
+input#password,
+input#confirmPassword,
+input#github,
+input#linkedin
+{
+    width: 180px;
+    padding: 2px 5px 2px 5px;
+    line-height: 20px;
+    height: 20px;
+    font-size: 16px;
+    background-color: var(--grey);
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    text-align: center;
+    color: var(--black);
+    outline: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+
+    &::placeholder {
+        color: var(--purple);
+        opacity: .6;
+    }
+}
+
+
+
+select#roll {
+    width: 193.2px;
+    padding: 2px 5px 2px 5px;
+    line-height: 20px;
+    height: 27.2px;
+    font-size: 16px;
+    color: var(--black);
+    border: 2px solid var(--border);
+    background-color: var(--grey);
+    border-radius: 5px;
+    text-align: end;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+select#roll option {
+    width: 200px;
+    text-align: center;
+    color: var(--black);
+}
+
+input.geoapify-autocomplete-input:hover,
+input#userName:hover,
+input#instagram:hover,
+input#facebook:hover,
+input#spotify:hover,
+input#email:hover,
+input#password:hover,
+input#confirmPassword:hover,
+input#github:hover,
+input#linkedin:hover,
+select#roll:hover
+{
+    background: var(--dark_grey);
+    color: var(--black);
+}
+
+input.geoapify-autocomplete-input:focus,
+input#userName:focus,
+input#instagram:focus,
+input#facebook:focus,
+input#spotify:focus,
+input#email:focus,
+input#password:focus,
+input#confirmPassword:focus,
+input#github:focus,
+input#linkedin:focus,
+select#roll:focus
+{
+    -webkit-box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
+    -moz-box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
+    box-shadow: 0 0 4px 1px rgba(255, 140, 0, 0.75);
+    border: 2px solid darkorange;
+    background: var(--dark_grey);
+    color: var(--black);
+}
+
+input.geoapify-autocomplete-input:-webkit-autofill,
+input#userName:-webkit-autofill,
+input#instagram:-webkit-autofill,
+input#facebook:-webkit-autofill,
+input#spotify:-webkit-autofill,
+input#email:-webkit-autofill,
+input#password:-webkit-autofill,
+input#confirmPassword:-webkit-autofill,
+input#github:-webkit-autofill,
+input#linkedin:-webkit-autofill,
+select#roll:-webkit-autofill,
+input.geoapify-autocomplete-input:autofill,
+input#userName:autofill,
+input#instagram:autofill,
+input#facebook:autofill,
+input#spotify:autofill,
+input#email:autofill,
+input#password:autofill,
+input#confirmPassword:autofill,
+input#github:autofill,
+input#linkedin:autofill,
+select#roll:autofill
+{
+    -webkit-box-shadow: 0 0 0 30px var(--grey) inset !important;
+    border: 2px solid var(--border);
+    -webkit-text-fill-color: var(--black);
+}
+
+.geoapify-close-button svg {
+    position: relative;
+    left: 3px;
+    color: var(--red);
+    background-color: var(--white);
+    border: thin solid var(--red);
+    border-radius: 5px;
+}
+.geoapify-close-button svg:hover {
+    color: var(--white);
+    background-color: var(--red);
+    border: thin solid var(--red);
+}
+
+.FormFlex {
+    display: flex;
+    justify-self: flex-end;
+    align-items: center;
+    margin: 20px 0 0 80px;
+    
+}
+
+.SignIn {
+    color: var(--main_text);
+    text-align: end;
+}
+
+.FormGold {
+    position: relative;
+    margin-left: 14px;
+    color: var(--text_span)
+}
+
+.FormGold:hover {
+    top: -2px;
+    transform: scale(1.2, 1.2);
+    transition: 0.15s;
+    color: var(--white)
+}
+
+.Disclaimer {
+    width: 370px;
+    margin: 30px auto 0;
+    font-size: 14px;
+    color: var(--text_span);
+    text-align: center;
+}
+
+.DisclaimerText {
+    width: 370px;
+    margin: 10px auto 0;
+    font-size: 14px;
+    color: var(--main_text);
+    text-align: center;
+}
+
+.MapLink {
+    position: relative;
+    margin-top: 25px;
+    color: var(--text_span);
+}
+
+.MapLink:hover {
+    transform: scale(1.2, 1.2);
+    transition: 0.15s;
+    color: var(--white);
+}
+/* END FORM STYLES */
+
+/* PROFILE SPINNER */
+.SpinnerBackground {
+    background-color: var(--background);
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: var(--white);
+}
+
+.Spinner{
+    height: 300px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.Center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    height: 150px;
+    pointer-events: none;
+    z-index: 999;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .Spinner {
+    animation: Spinner-spin infinite 1s linear;
+    }
+}
+
+@keyframes Spinner-spin {
+    from {
+    transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* END PROFILE SPINNER */
+
+/* PROFILE PAGE */
+.ProfileContainer {
+    width: 345px;
+    margin: 10px auto 0;
+    padding: 15px;
+    border: 5px double var(--border);
+    border-radius: 5px;
+}
+
+.ProfileFlex {
+    width: 380px;
+    margin: 0px auto 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ProfileHeader {
+    text-align: center;
+    padding-top: 20px;
+    Color:white;
+}
+
+.ProfileSubTitle {
+    text-align: center;
+    color: var(--text_span);
+    margin: 10px 0;
+    font-size: 12px;
+}
+
+.BeeIcon {
+    position: relative;
+    top: 12px;
+    height: 80px;
+    width: 80px;
+    border: 3px solid var(--border);
+    border-radius: 50%;
+    background-color: var(--white);
+}
+.StaffBee, #StaffBee {
+    background-color: var(--text_span);
+}
+.StudentBee, #StudentBee {
+    background-color: var(--green);
+}
+.AlumniBee, #AlumniBee {
+    background-color: var(--blue);
+}
+
+.LocationTitle, .SocialsTitle {
+    position:relative;
+    top: -2px;
+    font-size: 22px;
+    text-align: center;
+    color: var(--text_span);
+}
+
+.ProfileFlex2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 15px 0;
+}
+
+.ButtonBox {
+    text-decoration: none;
+}
+
+.ButtonBox button, .FormButton {
+    margin: 16px 0;
+    padding: 8px;
+    width: 150px;
+    text-decoration: none;
+    font-weight: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--border);
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    box-shadow: 0px 17px 10px -10px  var(--dark_grey);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.ButtonBox button:hover, .FormButton:hover {
+    border-color: var(--main_text);
+    background-color: var(--purple);
+    box-shadow: 0px 17px 10px -10px  var(--main_text);
+    color: var(--main_text);
+}
+
+.ButtonBox button:active, .FormButton:active {
+    transform: scale(0.9, 0.9) translateY(2px);
+    transition: 0.1s ;
+    box-shadow: 0px 14px 10px -4px  var(--main_text);
+}
+
+.ProfileTitle {
+    color: var(--border);
+    font-size: 18px;
+
+    i {
+        color: var(--main_text);
+        font-size: 18px;
+    }
+}
+
+.ProfileText {
+    color: var(--main_text);
+    text-align: end;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.SeperationLine {
+    border: 1px solid var(--border);
+    width: 90%;
+    margin: 15px auto;
+}
+
+.SeperationLineFull {
+    border: 3px solid var(--border);
+    width: 100%;
+    margin: 10px auto 25px;
+}
+
+.ProfileLinks {
+    width: 345px;
+    margin: 0 auto 0px;
+    padding: 15px;
+    border-left: 5px double var(--border);
+    border-right: 5px double var(--border);
+    border-bottom: 5px double var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ProfileToMap {
+    position: relative;
+    padding-left: 9px;
+    color: var(--text_span);
+    font-size: 18px;
+}
+
+.Logout {
+    position: relative;
+    color:var(--main_text);
+    font-size: 18px;
+}
+
+.ProfileDelete {
+    position: relative;
+    padding-right: 9px;
+    color: var(--red);
+    font-size: 18px;
+}
+
+.ProfileToMap, .Logout, .ProfileDelete {
+    transition: all 0.2s ease;
+}
+
+.ProfileToMap:hover, .Logout:hover, .ProfileDelete:hover {
+    transform: scale(1.4, 1.4) translateY(-2px);
+    transition: all 0.2s ease;
+    filter: brightness(120%);
+}
+
+.ProfileToMap:active, .Logout:active, .ProfileDelete:active {
+    transform: scale(1.4, 1.4) translateY(1px);
+    transition: 0.1s ;
+}
