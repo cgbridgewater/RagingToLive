@@ -22,10 +22,7 @@ const UserSchema = new mongoose.Schema({
     roll: {
         type: String,
     },
-    linkedin: {
-        type: String,
-    },
-    github: {
+    twitter: {
         type: String,
     },
     facebook: {

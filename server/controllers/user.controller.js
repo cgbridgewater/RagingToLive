@@ -6,7 +6,7 @@ module.exports = {
 
     // // // FIND ALL USERS
         findAll : (req,res) => {
-            User.find({}, 'userName coordinates roll instagram spotify facebook github linkedin') // only send relative data to client
+            User.find({}, 'userName coordinates roll instagram spotify facebook') // only send relative data to client
                 .then(results => res.json(results))
                 .catch(err => res.status(400).json(err))
         },
@@ -92,33 +92,30 @@ module.exports = {
         .catch(err => res.status(400).json(err));
     },
 
-    // UPDATE USER BY JWT
-    update: async (req, res) => {
+    // UPDATE USER SOCIALS BY JWT`
+    updateSocials: async (req, res) => {
         const userToken = req.cookies.usertoken;    // Get the user token from the cookie
         const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
-        
         try {
             const existingEmailUser = await User.findOne({ email: req.body.email.toLowerCase() });  // Search for matching email (case-insensitive)
-            
             if (existingEmailUser && existingEmailUser._id != decodedToken.id) {  // If match found make error
                 return res.status(400).json({ message: "Email already exists!" });
             }
-    
             const updatedUser = await User.findOneAndUpdate({ _id: decodedToken.id }, req.body, { new: true, runValidators: true }); // Update User
-    
             res.json(updatedUser);
         } catch (err) {
             res.status(400).json(err);
         }
     },
-    // // // UPDATE USER BY JWT
-    // update : (req,res) => {
-    //     const userToken = req.cookies.usertoken;  // Get the user token from the cookie
-    //     const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
-    //     User.findOneAndUpdate({ _id: decodedToken.id }, req.body, {new:true, runValidators: true}) // Use the decoded user id to retrieve and update the user's profile
-    //         .then(updatedResults => res.json(updatedResults))
-    //         .catch((err) => res.status(400).json(err))
-    // },
+
+    // // // UPDATE USER ADDRESS BY JWT
+    updateLocation : (req,res) => {
+        const userToken = req.cookies.usertoken;  // Get the user token from the cookie
+        const decodedToken = jwt.verify(userToken, process.env.SECRET_KEY);  // Decode the token to get the user id
+        User.findOneAndUpdate({ _id: decodedToken.id }, req.body, {new:true, runValidators: true}) // Use the decoded user id to retrieve and update the user's profile
+            .then(updatedResults => res.json(updatedResults))
+            .catch((err) => res.status(400).json(err))
+    },
 
     // // // DELETE USER BY JWT
     deleteUser : (req,res) => {

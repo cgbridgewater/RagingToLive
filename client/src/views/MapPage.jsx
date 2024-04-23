@@ -11,7 +11,6 @@ function MapPage() {
 
   return (
     <div className='MainContainer'>
-      <MapTitle />
       <Map />
     </div>
   )

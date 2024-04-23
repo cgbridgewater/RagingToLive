@@ -8,6 +8,7 @@ module.exports = (app) => {
     app.post('/api/login', UserController.login); // Login Page
     app.get('/api/logout', UserController.logout); // Logout Action Route
     app.get('/api/user/profile', authenticate, UserController.getOne); // Profile and Update Pages
-    app.put('/api/user/update', authenticate, UserController.update); // Update Pages
+    app.put('/api/user/updatesocials', authenticate, UserController.updateSocials); // Update Pages
+    app.put('/api/user/updatelocation', authenticate, UserController.updateLocation); // Update Pages
     app.delete('/api/user/delete', authenticate, UserController.deleteUser); // Profile Page
 }

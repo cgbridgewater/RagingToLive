@@ -14,8 +14,7 @@ function UpdateSocials (props) {
     const [ spotify, setSpotify ] = useState("");
     const [ instagram, setInstagram ] = useState("");
     const [ facebook, setFacebook ] = useState("");
-    const [ linkedin, setLinkedin ] = useState("");
-    const [ github, setGithub ] = useState("");
+    const [ twitter, setTwitter ] = useState("");
     const [ errors, setErrors ] = useState("");
 
     useEffect(() => {
@@ -33,8 +32,7 @@ function UpdateSocials (props) {
         setSpotify(res.data.spotify);
         setInstagram(res.data.instagram);
         setFacebook(res.data.facebook);
-        setLinkedin(res.data.linkedin);
-        setGithub(res.data.github);
+        setTwitter(res.data.twitter);
         })
         .catch((err) => {
             props.setAuthorized("Please log in to access profile pages!");
@@ -51,10 +49,9 @@ function UpdateSocials (props) {
             spotify,
             facebook,
             instagram,
-            linkedin,
-            github,
+            twitter,
         }
-        axios.put("http://localhost:8000/api/user/update", data, {withCredentials: true})
+        axios.put("http://localhost:8000/api/user/updatesocials", data, {withCredentials: true})
             .then(res => { 
                 console.log("Profile Updated!")
                 navigate(`/profile`);
@@ -75,8 +72,7 @@ function UpdateSocials (props) {
                         setSpotify(res.data.spotify);
                         setInstagram(res.data.instagram);
                         setFacebook(res.data.facebook);
-                        setLinkedin(res.data.linkedin);
-                        setGithub(res.data.github);
+                        setTwitter(res.data.twitter);
                     })
                     .catch((err) => {
                         props.setAuthorized("Please log in to access profile pages!");
@@ -170,55 +166,29 @@ function UpdateSocials (props) {
                             </select>
                         </div>
                         <p className='ProfileSubTitle'>(Only enter account handles below, not entire links)</p>
-                        {/* GITHUB */}
-                        { errors.github ? 
+                        {/* Twitter */}
+                        { errors.twitter ? 
                             <div className='InputContainer'>
-                                <label htmlFor="github" style={{color:"red"}}>< i className="fas fa-github fa-sm" style={{color: "red"}}></i>&nbsp; Github:</label>
+                                <label htmlFor="email" style={{color:"red"}}>< i className="fab fa-twitter fa-sm" style={{color: "red"}}></i>&nbsp; Twitter:</label>
                                 <input 
                                     type="text" 
-                                    name="github" 
-                                    id='github' 
-                                    value={ github }
+                                    name="twitter" 
+                                    id='twitter' 
+                                    value={ twitter }
                                     placeholder='Enter Your Handle' 
-                                    onChange={(e) => setGithub(e.target.value)}
+                                    onChange={(e) => setTwitter(e.target.value)}
                                     />
                             </div>
                         :
                             <div className='InputContainer'>
-                                <label htmlFor="github">< i className="fab fa-github fa-sm" ></i>&nbsp; Github:</label>
+                                <label htmlFor="twitter">< i className="fab fa-twitter fa-sm" ></i>&nbsp; Twitter:</label>
                                 <input 
                                     type="text" 
-                                    name="github" 
-                                    id='github' 
-                                    value={ github}
+                                    name="twitter" 
+                                    id='twitter' 
+                                    value={ twitter }
                                     placeholder='Enter Your Handle' 
-                                    onChange={(e) => setGithub(e.target.value)}
-                                    />
-                            </div>
-                        }
-                        {/* LINKEDIN */}
-                        { errors.linkedin ? 
-                            <div className='InputContainer'>
-                                <label htmlFor="email" style={{color:"red"}}>< i className="fab fa-linkedin fa-sm" style={{color: "red"}}></i>&nbsp; LinkedIn:</label>
-                                <input 
-                                    type="text" 
-                                    name="linkedin" 
-                                    id='linkedin' 
-                                    value={ linkedin }
-                                    placeholder='Enter Your Handle' 
-                                    onChange={(e) => setLinkedin(e.target.value)}
-                                    />
-                            </div>
-                        :
-                            <div className='InputContainer'>
-                                <label htmlFor="linkedin">< i className="fab fa-linkedin fa-sm" ></i>&nbsp; LinkedIn:</label>
-                                <input 
-                                    type="text" 
-                                    name="linkedin" 
-                                    id='linkedin' 
-                                    value={ linkedin }
-                                    placeholder='Enter Your Handle' 
-                                    onChange={(e) => setLinkedin(e.target.value)}
+                                    onChange={(e) => setTwitter(e.target.value)}
                                     />
                             </div>
                         }

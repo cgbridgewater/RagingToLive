@@ -20,8 +20,7 @@ function Profile(props) {
     const [ spotify, setSpotify ] = useState("");
     const [ instagram, setInstagram ] = useState("");
     const [ facebook, setFacebook ] = useState("");
-    const [ linkedin, setLinkedin ] = useState("");
-    const [ github, setGithub ] = useState("");
+    const [ twitter, setTwitter ] = useState("");
 
     const SortRoll = () => {
         if( roll == "Alumni" ) {
@@ -54,8 +53,7 @@ function Profile(props) {
             setSpotify(res.data.spotify);
             setInstagram(res.data.instagram);
             setFacebook(res.data.facebook);
-            setLinkedin(res.data.linkedin);
-            setGithub(res.data.github);
+            setTwitter(res.data.twitter);
             setTimeout(() => {
                 setShowSpinner(false); // Turn off the spinner after 2 seconds
                 setIsLoading(false); // Switch Ternary If Load is successful
@@ -125,21 +123,12 @@ function Profile(props) {
                             }
                             {/* GOLD LINE */}
                             <hr className="SeperationLine" />
-                            {/* ROLL DISPLAY */}
-                            <h4 className="ProfileTitle">< i className="fab fa-github fa-sm"></i>&nbsp; GitHub:</h4>
-                            { !github ?
+                            {/* TWITTER DISPLAY */}
+                            <h4 className="ProfileTitle">< i className="fab fa-twitter fa-sm"></i>&nbsp; Twitter:</h4>
+                            { !twitter ?
                                 <h4 className="ProfileText">Not Provided</h4>
                             :
-                                <h4 className="ProfileText">{github}</h4>
-                            }
-                            {/* GOLD LINE */}
-                            <hr className="SeperationLine" />
-                            {/* ROLL DISPLAY */}
-                            <h4 className="ProfileTitle">< i className="fab fa-linkedin fa-sm"></i>&nbsp; LinkedIn:</h4>
-                            { !linkedin ?
-                                <h4 className="ProfileText">Not Provided</h4>
-                            :
-                                <h4 className="ProfileText">{linkedin}</h4>
+                                <h4 className="ProfileText">{twitter}</h4>
                             }
                             {/* GOLD LINE */}
                             <hr className="SeperationLine" />

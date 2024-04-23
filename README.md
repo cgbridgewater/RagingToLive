@@ -1,2 +1,2 @@
 # RagingToLive
-## What's your rage?
+## What makes you rage?

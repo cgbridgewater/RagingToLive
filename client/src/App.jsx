@@ -11,6 +11,7 @@ import Logout from "./components/Logout.jsx";
 import DeleteUser from "./components/DeleteUser.jsx";
 import UpdateLocation from "./views/UpdateLocation.jsx";
 import UpdateSocials from "./views/UpdateSocials.jsx";
+import Navbar from "./components/Navbar.jsx";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
 
   return (
   <BrowserRouter>
+    <Navbar />
     <Routes>
       <>
         <Route path="/" default element={<MapPage/>}/>

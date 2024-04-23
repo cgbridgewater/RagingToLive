@@ -34,7 +34,7 @@ function UpdateLocation (props) {
             addressLine1,
             addressLine2,
         }
-        axios.put("http://localhost:8000/api/user/update", data, {withCredentials: true})
+        axios.put("http://localhost:8000/api/user/updatelocation", data, {withCredentials: true})
             .then(res => { 
                 console.log("Profile Updated!")
                 navigate(`/profile`);
