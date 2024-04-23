@@ -41,7 +41,7 @@ function Map() {
         // Create Custom Footer In Map For Techbyte Link
         map.current.addControl(
             new mapboxgl.AttributionControl({
-                customAttribution: '<a href="https://ragingtolive.com/" target="_blank">Raging To Live</a>',
+                customAttribution: '<a href="https://ragingtoride.oneclick.community" target="_blank">Raging To Ride</a>',
                 compact: false,
             })
         );
@@ -78,26 +78,30 @@ function Map() {
         const HQMarkerInfo =
         `
         <div>
-            <h1>Raging To Live</h1>
+            <h1>Raging To Ride</h1>
             <h2>HQ</h2>
             <div>
             <img src="${ RTL_Fire }" alt="RTL Fire Icon" />
             </div>
-            <div>
+            <div className="card_link">
+                <p><i class="fas fa-laptop-house"></i>&nbsp;</p>
+                <a href="#" target="_blank" rel="noopener noreferrer">RTR Homepage</a>
+            </div>
+            <div className="card_link">
                 <p><i class="fab fa-instagram-square"></i>&nbsp;</p>
-                <a href="#" target="_blank" rel="noopener noreferrer">RTL Instagram</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">RTR Instagram</a>
             </div>
-            <div>
+            <div className="card_link">
                 <p><i class="fab fa-facebook-square"></i>&nbsp;</p>
-                <a href="#" target="_blank" rel="noopener noreferrer">RTL Facebook</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">RTR Facebook</a>
             </div>
-            <div>
+            <div className="card_link">
                 <p><i class="fab fa-youtube"></i>&nbsp;</p>
-                <a href="#" target="_blank" rel="noopener noreferrer">RTL YouTube</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">RTR YouTube</a>
             </div>
-            <div>
+            <div className="card_link">
                 <p><i class="fab fa-twitter-square"></i>&nbsp;</p>
-                <a href="#" target="_blank" rel="noopener noreferrer">RTL Twitter</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">RTR Twitter</a>
             </div>
         </div>
         `
@@ -226,7 +230,7 @@ function Map() {
                 <div id="map" ref={mapContainer} className="MapContainer" />
             </div>
             <h5 className='Signup'>
-                Not on the map? Setup or view profile <Link to={"/profile"} className='LoginLink'>HERE</Link>
+                Not on the map? Setup a profile <Link to={"/profile"} className='LoginLink'>HERE</Link>
             </h5>
         </>
     );

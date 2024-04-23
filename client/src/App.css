@@ -7,7 +7,7 @@
     --dark_grey: #34363A;
     --light_grey: #A0A9B0;
     --white: #FFFFFF;
-    --white_faded: #ffffffee;
+    --white_faded: #fffffffb;
     --black: #0D1F2D;
     --green: #638873;
     --popup_background: #182445 ;
@@ -270,27 +270,48 @@ button.mapboxgl-ctrl-compass, .mapboxgl-ctrl-compass,.mapboxgl-ctrl-zoom-out spa
 }
 
 .mapboxgl-popup-content p, .mapboxgl-popup-content svg {
-    margin: 4px;
+
+    margin: 6px 4px 0;
     color: var(--red);
     fill: var(--red);
-    font-size: 1rem;
+    font-size: 1.1rem;
     height: 18px;
 }
 
 .mapboxgl-popup-content a {
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    text-wrap: nowrap;
     margin: 4px;
     color: var(--dark_grey);
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.05rem;
+    font-weight: 800;
     text-transform: capitalize;
     
     &:hover {
         color: var(--light_grey);
     }
+    &::before {
+        left: 0; 
+    }
+    &::after {
+        right: 0;
+    }
 }
 
-.mapboxgl-popup-content a:focus {
-    outline: none;
+.mapboxgl-popup-content a:before, .mapboxgl-popup-content a::after {
+    content: '';
+    border-bottom: 2px solid var(--red);
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.mapboxgl-popup-content a:hover:before, .mapboxgl-popup-content a:hover::after {
+    width: 50%;
 }
 
 .mapboxgl-popup-content img {
