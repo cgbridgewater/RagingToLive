@@ -54,7 +54,7 @@ function Map() {
         // Create A Fly To Animation To TechByte Learning Home From A Randomized Start Point On Map Load And Open Pop Up
         map.current.on('load', () => {
             map.current.easeTo({
-                center: [-123.02101, 43.46679], //Center For HQ
+                center: [-122.90101, 43.46679], //Center For HQ
                 zoom: 7.5,
                 duration: flyToDuration,
                 curve: 1.42,
